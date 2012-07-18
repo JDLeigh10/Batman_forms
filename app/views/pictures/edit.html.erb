@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Edit Page</title>
+
+<style>
+
+#wrapper {
+  max-width: 65%;
+  min-width: 65%;
+  margin: 25px auto 0 auto;
+  position: relative;
+}
+
+#picture {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+form {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+}
+
+input {
+  width: 100%;
+}
+
+tr {
+  height: 40px;
+}
+
+</style>
+
+</head>  
+
+<body>
+<div id="wrapper">
+  
+  <a href="/pictures">Back to Index</a>
+
+  <%= form_tag "/pictures", :method => "put" do %>
+  <table><tbody>
+    
+  <tr><td><label for="url">URL:</label></td>
+  <td><input type="text" name="url" value="<%= @p.url %>" /></td></tr>
+  
+  <tr><td><label for="note">Caption: </label></td>
+  <td><input type="text" name="note" value="<%= @p.note %>" /></td></tr>
+  
+  <tr><td><label for="favorite">Favorite? </label></td>
+  <td><input type="checkbox" name="favorite" <% if @p.favorite == true%>
+                                             checked="checked"
+                                             <% end %>                  /></td></tr>
+  
+  <input type="hidden" name="id" value="<%= @p.id %>">
+  
+  <tr><td colspan='2'><input id="submit" type="submit" value="Edit Picture" /></td></tr>
+  
+  </tbody></table>
+  <% end %>
+  
+  <div id="picture">
+  <%= image_tag @p.url, :width => 250 %>  
+  </div>  
+  
+</div>
+</body>
+</html>

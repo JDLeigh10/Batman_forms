@@ -1,0 +1,13 @@
+<style>
+  body {
+    background-color: <%= @bgcolor %>;
+  }
+</style>
+
+<h1>Picture Details</h1>
+<h4>Favorite: <%= @picture.favorite %></h4>
+<h3><%= @picture.note %></h3>
+
+<img width="360" src="<%= @picture.url %>"><br />
+
+<a href="/pictures">Back to the Index Page</a>

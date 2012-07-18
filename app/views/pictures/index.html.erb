@@ -1,0 +1,14 @@
+<h1>List of Pictures</h1>
+
+<%= link_to "Add a New Picture", "/pictures/new" %>
+
+<ul>
+<% @pictures.each do |picture_object| %>
+  <li>
+    <%= link_to  image_tag(picture_object.url, :width => 100), "/pictures/#{picture_object.id}" %>
+    <%= link_to "Edit", "/pictures/#{picture_object.id}/edit"%>
+    <%= link_to "Delete", "/pictures/#{picture_object.id}", :method => "delete", :confirm => "Are you nuts? This is a picture of: #{picture_object.note}" %>
+    
+  </li>
+<% end %>
+</ul>

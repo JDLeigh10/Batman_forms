@@ -1,0 +1,22 @@
+<h1>Add a New Picture</h1>
+
+<!-- <form action="http://localhost:3000/pictures" method="post">
+  URL: 
+  <input type="text" name="url">
+  Note:
+  <input type="text" name="caption">
+  
+  <p>
+    <input type="submit">
+  </p>
+</form> -->
+
+<%= form_tag("/pictures", :method => 'post') do %>
+<%= label_tag(:url, "URL: ") %>
+<%= text_field_tag(:url) %>
+<%= label_tag(:caption, "Enter a note: ") %>
+<%= text_field_tag(:caption) %>
+<%= submit_tag("Insert Picture") %>  
+<% end %>
+
+<a href="/pictures">Back to the Index Page</a>
